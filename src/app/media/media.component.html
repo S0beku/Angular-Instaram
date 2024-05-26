@@ -3,12 +3,12 @@
 <form method="POST" enctype="multipart/form-data" action="#" id="picadd">
     <label for="opis">Wpisz Opis</label>
     <br>
-    <input type="text" id="opis" name="opis"
+    <input type="text" id="opis" name="opis" [(ngModel)]="opis"
         style="background-color: lightsteelblue; color: black; width: 210px;">
     <br>
     <label for="pic">Wstaw Plik</label>
     <br>
-    <input type="file" id="pic" name="pic">
+    <input type="file" id="pic" name="pic" [(ngModel)]="pic">
     <br>
     <input type="submit" name="btn" class="btn" value="Dodaj"
         style="width: 60px; background-color: #54b7f7; color: white; border-width: 0px; border-radius: 7px; height: 20px;">
