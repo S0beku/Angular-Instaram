@@ -4,16 +4,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MediaComponent } from './media/media.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'Login',
-        pathMatch: 'full'
+        component: MediaComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'MainSite',
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'AddPicture',
