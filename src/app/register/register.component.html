@@ -1,0 +1,16 @@
+<div class="main_div">
+    <form method="POST" action="Register.php" id="Register">
+        <h1>Instaram</h1>
+        <br />
+        <input type="text" placeholder="Login" name="Login" class="Log" [(ngModel)]="login"/>
+        <br />
+        <input type="password" placeholder="Haslo" name="Pass" class="Log" [(ngModel)]="password"/>
+        <br />
+        <input type="number" placeholder="Age" name="Age" class="Log" [(ngModel)]="age"/>
+        <br />
+        <input type="submit" name="RegIn" class="Log" id="LogIn" value="Zarejestruj sie" (click)="addUser()"/>
+    </form>
+</div>
+<div class="secondary_div">
+    <h5>Masz juz konto? <a href="localhost:4200/Login">Zaloguj sie</a></h5>
+</div>

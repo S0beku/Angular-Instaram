@@ -19,5 +19,8 @@ export class DashboardComponent implements OnInit {
       this.images = response
     }})      
   }
+  usun(id:number): void {
+    this.backendService.delPic(id).subscribe();
+  }
 }
 

@@ -1,0 +1,14 @@
+<div class="main_div">
+    <form method="POST" action="Signing.php" id="loginForm">
+        <h1>Instaram</h1>
+        <br />
+        <input type="text" placeholder="Login" name="Login" class="Log" require [(ngModel)]="login"/>
+        <br />
+        <input type="password" placeholder="Haslo" name="Password" class="Log" require [(ngModel)]="password"/>
+        <h4 class="err" id="errlog"></h4>
+        <input type="submit" name="LogIn" class="Log" id="LogIn" value="Zaloguj się" (click)="checkUser()"/>
+    </form>
+</div>
+<div class="secondary_div">
+    <h5>Nie masz konta? <a href="Register.html">Zarejestruj sie</a></h5>
+</div>

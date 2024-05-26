@@ -1,0 +1,62 @@
+@import url("https://fonts.cdnfonts.com/css/billabong");
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main_div {
+  display: flex;
+  justify-content: center;
+  border: 1px #eaeaea solid;
+  width: 270px;
+}
+
+.Log {
+  margin: 10px 10px 10px 10px;
+  padding: 7px 7px 7px 7px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: #eaeaea;
+  background-color: #fafaf5;
+}
+
+#LogIn {
+  width: 90%;
+  background-color: #54b7f7;
+  color: white;
+  border-width: 0px;
+  border-radius: 7px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  margin-left: 25%;
+  font-family: "Billabong", sans-serif;
+  font-size: 50px;
+}
+
+.secondary_div {
+  display: flex;
+  justify-content: center;
+  border: 1px #eaeaea solid;
+  width: 270px;
+}
+
+a {
+  color: lightseagreen;
+  text-decoration: none;
+}
+
+h4 {
+  color: red;
+  margin-right: 5%;
+  margin-left: 5%;
+}

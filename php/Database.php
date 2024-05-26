@@ -44,7 +44,7 @@ class Database
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function insertUser(string $login, string $password, string $username, int $age): void
+    public function insertUser(string $login, string $password, int $age): void
     {
         $img = "anon.png";
         $stmt = $this->pdo->prepare("INSERT INTO dane_uzytkownika (Login, Haslo, Wiek) VALUES (:logini, :passwordi, :age)");

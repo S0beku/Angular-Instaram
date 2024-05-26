@@ -17,4 +17,17 @@ export class BackendService {
   getPic(): Observable<any> {
     return this.http.get<any>(environment.apiUrl + "/PhotoHandler.php")
   }
+
+  delPic(id:number): Observable<any> {
+    return this.http.post<any>(environment.apiUrl + "/DeletePhotoHandler.php", {id: id})
+  }
+  isLoggedIn(data:string): Observable<any> {
+    return this.http.post<any>(environment.apiUrl + "/CookieHandler.php", {data: data})
+  }
+  addUser(login:string, password:string, age:number): Observable<any> {
+    return this.http.post<any>(environment.apiUrl + "/regin.php", {login: login, password: password, age: age})
+  }
+  checkUser(login:string, password:string): Observable<any> {
+    return this.http.post<any>(environment.apiUrl + "/login.php", {login: login, password: password})
+  }
 }

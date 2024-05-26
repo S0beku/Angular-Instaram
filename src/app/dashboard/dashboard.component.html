@@ -5,6 +5,7 @@
         <p>{{zdjecie.Opis}}</p>
     </div>
     <div class="card-body">
-        <img [src] = "environment.apiUrl + zdjecie.url">
+        <img [src] = "environment.apiUrl + '/images/' + zdjecie.Zdj">
+        <button (click)="usun(zdjecie.ID_zdjecia)" style="background: none; border: none;"><i class="bx bx-x-circle" style="width: 100%; height: 100%;"></i></button>
     </div>
 </div>
