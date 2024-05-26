@@ -2,11 +2,12 @@ import { Component, EnvironmentInjector } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { BackendService } from '../services/backend.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

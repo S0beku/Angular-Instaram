@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { navbarData } from './nav-data';
-import { animate, animation, keyframes, style, transition, trigger } from '@angular/animations';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -14,26 +13,6 @@ interface SideNavToggle {
   imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.css',
-  animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({opacity: 0}),
-        animate('350ms', style({opacity: 1}))
-      ]),
-      transition(':leave', [
-        style({opacity: 1}),
-        animate('350ms', style({opacity: 0}))
-      ])
-    ]),
-    trigger('rotate', [
-      transition(':enter', [
-        animate('1000ms', keyframes([
-          style({transform: 'rotate(0deg)', offset: '0'}),
-          style({transform: 'rotate(2turn)', offset: '1'})
-        ]))
-      ])
-    ])
-  ]
 })
 export class SidenavComponent implements OnInit {
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();

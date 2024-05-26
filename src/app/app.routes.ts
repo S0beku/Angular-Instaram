@@ -9,7 +9,7 @@ import { authGuard } from './auth.guard';
 export const routes: Routes = [
     {
         path: '',
-        component: MediaComponent,
+        component: LoginComponent,
         canActivate: [authGuard]
     },
     {
@@ -19,7 +19,8 @@ export const routes: Routes = [
     },
     {
         path: 'AddPicture',
-        component: MediaComponent
+        component: MediaComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'Register',
@@ -28,5 +29,5 @@ export const routes: Routes = [
     {
         path: 'Login',
         component: LoginComponent
-    }
+    },
 ];

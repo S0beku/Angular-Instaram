@@ -8,5 +8,10 @@ export const navbarData = [
         routeLink: 'AddPicture',
         icon: 'fal fa-camera',
         label: 'Add_Picture'
+    },
+    {
+        routeLink: 'Login',
+        icon: 'bx bx-door-open',
+        label: 'Login'
     }
 ];
