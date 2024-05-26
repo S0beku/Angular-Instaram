@@ -28,7 +28,7 @@ async addPic(imageInput: any): Promise<void> {
 
   this.backendService.addPic(this.opis, base64).subscribe({
       next: (response) => {
-          if (response.success) {
+          if (response.status) {
               alert('Pomyślnie dodano zdjęcie!');
           }
       },

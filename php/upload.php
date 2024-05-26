@@ -5,7 +5,7 @@ class PictureUpload
 {
     private $db;
     private $opis;
-    private $id = null;
+    private $id;
     private $fileName;
     private $imageData;
     private $fileLocation;
@@ -41,14 +41,14 @@ class PictureUpload
                 $zdj = $this->fileName;
 
                 try {
-                    $stmt = $this->db->pdo->prepare("INSERT INTO zdjecia (Opis, Zdjecie, ID_uzytkownika, Data) VALUES (:opis, :zdj, :id, :data)");
+                    $stmt = $this->db->pdo->prepare("INSERT INTO zdjecia (Opis, Zdjecie, id_konta, Data) VALUES (:opis, :zdj, :id, :data)");
                     $stmt->bindParam(':opis', $this->opis);
                     $stmt->bindParam(':zdj', $zdj);
                     $stmt->bindParam(':id', $this->id);
                     $stmt->bindParam(':data', $data);
                     $stmt->execute();
 
-                    $returnData["status"] = "Plik " . basename($this->fileName) . " zostal dodany.";
+                    $returnData["status"] = true;
                 } catch (PDOException $e) {
                     $returnData["errors"]["internal"] = "Napotkalismy problem z przeslaniem twojego obrazu. " . $e->getMessage();
                 }
