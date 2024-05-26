@@ -1,6 +1,7 @@
 import { Component, EnvironmentInjector } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-media',
@@ -10,9 +11,28 @@ import { Observable } from 'rxjs';
   styleUrl: './media.component.css'
 })
 export class MediaComponent {
-  pic: string = "";
+  constructor (private backendService: BackendService) {}
+  getBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+        if (!file) resolve('');
+
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            if (reader.result) resolve(reader.result.toString());
+        };
+    });
+}
+async addPic(imageInput: any): Promise<void> {
+  let base64 = await this.getBase64(imageInput.files[0]);
+
+  this.backendService.addPic(this.opis, base64).subscribe({
+      next: (response) => {
+          if (response.success) {
+              alert('Pomyślnie dodano zdjęcie!');
+          }
+      },
+  });
+}
   opis: string = "";
-  addPic(): Observable<any> {
-    return this.http.get<any>(environment.apiUrl + "/upload.php");
-  }
 }

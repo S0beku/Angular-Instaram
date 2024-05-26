@@ -10,7 +10,7 @@ export class BackendService {
 
   constructor(private http: HttpClient) { }
 
-  addPic(): Observable<any> {
+  addPic(opis:string, base64: string): Observable<any> {
     return this.http.get<any>(environment.apiUrl + "/upload.php");
   }
 }
