@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { environment } from '../../environments/environment.development';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
