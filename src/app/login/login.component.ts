@@ -19,14 +19,13 @@ export class LoginComponent {
     this.backendService.checkUser(this.login, this.password).subscribe({
       next:(response) => {
         if(response.token) {
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/MainSite');
         }
       }
     });
   }
 
   ngOnInit(): void {
-    localStorage.removeItem("Token");
-    this.router.navigateByUrl('/');
+    localStorage.removeItem("token");
   }
 }

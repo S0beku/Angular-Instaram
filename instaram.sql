@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Maj 26, 2024 at 08:16 PM
+-- Generation Time: Maj 26, 2024 at 09:58 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -30,16 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `dane_uzytkownika` (
   `id_konta` int(11) NOT NULL,
   `Login` varchar(30) NOT NULL,
-  `Haslo` varchar(30) NOT NULL,
+  `Haslo` varchar(255) NOT NULL,
   `Wiek` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `dane_uzytkownika`
---
-
-INSERT INTO `dane_uzytkownika` (`id_konta`, `Login`, `Haslo`, `Wiek`) VALUES
-(3, 'Sobeku123', '$2y$10$ivi4Ey3B5G.TgcSLKosGR.z', 18);
 
 -- --------------------------------------------------------
 
@@ -50,15 +43,8 @@ INSERT INTO `dane_uzytkownika` (`id_konta`, `Login`, `Haslo`, `Wiek`) VALUES
 CREATE TABLE `tokeny` (
   `Token` varchar(255) NOT NULL,
   `id_konta` int(11) NOT NULL,
-  `Data` datetime NOT NULL
+  `Data` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tokeny`
---
-
-INSERT INTO `tokeny` (`Token`, `id_konta`, `Data`) VALUES
-('240947235150c3fc39e0', 3, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -99,13 +85,13 @@ ALTER TABLE `zdjecia`
 -- AUTO_INCREMENT for table `dane_uzytkownika`
 --
 ALTER TABLE `dane_uzytkownika`
-  MODIFY `id_konta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_konta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `zdjecia`
 --
 ALTER TABLE `zdjecia`
-  MODIFY `id_zdjecia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_zdjecia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

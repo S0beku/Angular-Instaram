@@ -20,7 +20,7 @@ class Database
         $stmt = $this->pdo->prepare("SELECT * FROM tokeny WHERE Token = :token");
         $stmt->bindParam(':token', $token);
         $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC)["id_uzytkownika"] ?? null;
+        $user = $stmt->fetch(PDO::FETCH_ASSOC)["id_konta"] ?? null;
 
         if ($user)
             return $user;

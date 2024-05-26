@@ -25,8 +25,8 @@ export class MediaComponent {
 }
 async addPic(imageInput: any): Promise<void> {
   let base64 = await this.getBase64(imageInput.files[0]);
-
-  this.backendService.addPic(this.opis, base64).subscribe({
+  let token = localStorage.getItem('token');
+  this.backendService.addPic(this.opis, base64, token).subscribe({
       next: (response) => {
           if (response.status) {
               alert('Pomyślnie dodano zdjęcie!');

@@ -5,18 +5,18 @@ class PictureUpload
 {
     private $db;
     private $opis;
-    private $id;
     private $fileName;
     private $imageData;
     private $fileLocation;
+    private $token;
 
     public function __construct(Database $db)
     {
         $this->db = $db;
         $jsonr = file_get_contents('php://input');
         $data = json_decode($jsonr);
+        $this->token = $data->token;
         $this->opis = $data->opiss;
-        $this->id = $data->id;
         $base64Image = $data->photo;
 
         $this->imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64Image));
@@ -41,10 +41,11 @@ class PictureUpload
                 $zdj = $this->fileName;
 
                 try {
+                    $id = $this->db->getUserIdByToken($this->token);
                     $stmt = $this->db->pdo->prepare("INSERT INTO zdjecia (Opis, Zdjecie, id_konta, Data) VALUES (:opis, :zdj, :id, :data)");
                     $stmt->bindParam(':opis', $this->opis);
                     $stmt->bindParam(':zdj', $zdj);
-                    $stmt->bindParam(':id', $this->id);
+                    $stmt->bindParam(':id', $id);
                     $stmt->bindParam(':data', $data);
                     $stmt->execute();
 

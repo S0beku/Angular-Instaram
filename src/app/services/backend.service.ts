@@ -10,11 +10,11 @@ import { tap } from 'rxjs';
 export class BackendService {
   constructor(private http: HttpClient) {}
 
-  addPic(opis: string, base64: string): Observable<any> {
+  addPic(opis: string, base64: string, token: string | null): Observable<any> {
     return this.http.post<any>(environment.apiUrl + '/upload.php', {
       opiss: opis,
       photo: base64,
-      id: 1,
+      token: token,
     });
   }
 
