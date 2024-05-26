@@ -18,10 +18,10 @@ class PhotoHandler
             $query = $this->db->pdo->query($sql);
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                 $photo = [];
-                $photo['Data'] = $row['Data'];
-                $photo['Opis'] = $row['Opis'];
-                $photo['Zdj'] = $row['Zdjecie'];
-                $photo['ID_zdjecia'] = $row['ID_zdjecia'];
+                $photo['Data'] = $row['data'];
+                $photo['Opis'] = $row['opis'];
+                $photo['Zdj'] = $row['zdjecie'];
+                $photo['ID_zdjecia'] = $row['id_zdjecia'];
                 $photos[] = $photo;
             }
         } catch (PDOException $e) {

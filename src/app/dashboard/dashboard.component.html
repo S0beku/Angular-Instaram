@@ -1,5 +1,10 @@
 <h1>Main Site</h1>
-<div class="card">
-    <div class="card-head"></div>
-    <div class="card-body"></div>
+<div class="card" *ngFor="let zdjecie of images">
+    <div class="card-head">
+        <h1>{{zdjecie.Data}}</h1>
+        <p>{{zdjecie.Opis}}</p>
+    </div>
+    <div class="card-body">
+        <img [src] = "environment.apiUrl + zdjecie.url"
+    </div>
 </div>

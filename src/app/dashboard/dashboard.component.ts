@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../services/backend.service';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +9,14 @@ import { Component } from '@angular/core';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent {
-
+export class DashboardComponent implements OnInit {
+  images: Array<any> = [];
+  environment = environment;
+  constructor (private backendService: BackendService) {}
+  ngOnInit(): void {
+    this.backendService.getPic().subscribe({next: (response) => {
+      this.images = response
+    }})      
+  }
 }
+
