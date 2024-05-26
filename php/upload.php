@@ -5,7 +5,7 @@ class PictureUpload
 {
     private $db;
     private $opis;
-    private $id;
+    private $id = null;
     private $fileName;
     private $imageData;
     private $fileLocation;
